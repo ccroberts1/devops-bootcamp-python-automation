@@ -12,11 +12,13 @@ docker_image = os.environ['DOCKER_IMAGE']
 container_port = os.environ['CONTAINER_PORT']
 host_port = os.environ['HOST_PORT']
 
+aws_default_region = os.environ['AWS_DEFAULT_REGION']
+
 ssh_client = paramiko.SSHClient()
 ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 ssh_client.connect(hostname=ssh_host, username=ssh_user, key_filename=ssh_private_key)
 
-stdin, stdout, stderr = ssh_client.exec_command(f"echo {docker_pwd} | docker login {docker_registry} --username {docker_user} --password-stdin")
+stdin, stdout, stderr = ssh_client.exec_command(f"aws ecr get-login-password --region {aws_default_region} | docker login --username AWS --password-stdin {docker_registry}")
 stdin.close()
 print(stdout.readlines())
 
