@@ -13,6 +13,9 @@ docker_image = os.environ['DOCKER_IMAGE']
 container_port = os.environ['CONTAINER_PORT']
 host_port = os.environ['HOST_PORT']
 
+print(f"ssh_host:{ssh_host}")
+print(f"ssh_user:{ssh_user}")
+print(f"ssh_key:{ssh_private_key}")
 ssh_client = paramiko.SSHClient()
 ssh_client.set_missing_host_key_policy(AutoAddPolicy())
 ssh_client.connect(hostname=ssh_host, username=ssh_user, key_filename=ssh_private_key)
