@@ -3,13 +3,13 @@
 pipeline {
     agent any
     environment {
-        ECR_REPO_NAME = ''
+        ECR_REPO_NAME = 'devops/python-automation'
         EC2_SERVER = '98.81.243.117'
         EC2_USER = 'ec2-user'
 
         SSH_KEY_FILE = credentials('ssh-creds')
 
-        ECR_REGISTRY = ''
+        ECR_REGISTRY = '538343889439.dkr.ecr.us-east-1.amazonaws.com/devops/python-automation'
         DOCKER_USER = 'AWS'
         DOCKER_PWD = credentials('ecr-repo-pwd')
         CONTAINER_PORT = '8080'
