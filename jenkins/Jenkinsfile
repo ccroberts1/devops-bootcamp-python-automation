@@ -25,9 +25,11 @@ pipeline {
                 script {
                     echo 'fetching available image versions'
                     def result = sh(script: 'python3 jenkins/get-images.py', returnStdout: true).trim()
-                    def tags = result.split('\n') as List
-                    print("Tags:")
-                    print(tags[0]['imageTags'])
+                    print("Result:")
+                    print(result)
+                    def image = result.get(0)
+                    print("Image:")
+                    print(image)
                     version_to_deploy = input message: 'Select version to deploy', ok: 'Deploy', parameters: [choice(name: 'Select version', choices: tags)]
                     env.DOCKER_IMAGE = "${ECR_REGISTRY}/${ECR_REPO_NAME}:${version_to_deploy}"
                     echo env.DOCKER_IMAGE
