@@ -9,7 +9,7 @@ pipeline {
 
         SSH_KEY_FILE = credentials('ssh-creds')
 
-        ECR_REGISTRY = '538343889439.dkr.ecr.us-east-1.amazonaws.com/'
+        ECR_REGISTRY = '538343889439.dkr.ecr.us-east-1.amazonaws.com'
         DOCKER_USER = 'AWS'
         DOCKER_PWD = credentials('ecr-repo-pwd')
         CONTAINER_PORT = '3000'
