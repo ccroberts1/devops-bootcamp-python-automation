@@ -15,7 +15,7 @@ host_port = os.environ['HOST_PORT']
 
 ssh_client = paramiko.SSHClient()
 ssh_client.set_missing_host_key_policy(AutoAddPolicy())
-ssh_client.connect(hostname=ssh_host, username=ssh_user, p_key=ssh_private_key)
+ssh_client.connect(hostname=ssh_host, username=ssh_user, pkey=ssh_private_key)
 
 stdin, stdout, stderr = ssh_client.exec_command(f"echo {docker_pwd} | docker login {docker_registry} --username {docker_user} --password-stdin")
 stdin.close()
