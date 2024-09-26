@@ -2,7 +2,6 @@ import boto3
 import os
 
 repo_name = os.environ['ECR_REPO_NAME']
-
 ecr_client = boto3.client('ecr')
 
 images_list = ecr_client.describe_images(repositoryName=repo_name)['imageDetails']
