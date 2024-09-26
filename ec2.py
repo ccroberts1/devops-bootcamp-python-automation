@@ -10,7 +10,6 @@ instance_type='t3.medium'
 
 ssh_user='ec2-user'
 ssh_private_key_path='/Users/alban/Downloads/python-server.pem'
-ssh_host = '98.81.243.117'
 
 ec2_client = boto3.client('ec2')
 ec2_resource = boto3.resource('ec2')

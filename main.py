@@ -18,6 +18,5 @@ all_users = iam_client.list_users()['Users']
 ecr_client = boto3.client('ecr')
 all_ecr_repos = ecr_client.describe_repositories()['repositories']
 
-get_ecr_repo_names(all_ecr_repos)
-get_repo_image_tags(ecr_client, all_ecr_repos[0]['repositoryName'])
-
+# get_ecr_repo_names(all_ecr_repos)
+# get_repo_image_tags(ecr_client, all_ecr_repos[0]['repositoryName'])
